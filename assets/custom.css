@@ -1,0 +1,19 @@
+.logo{
+	height: 150px;
+	width: auto;
+	margin: 0 auto 0 auto;
+}
+
+.custom-btn{
+	margin-right: 10px;
+}
+
+.table-custom th{
+	background: #428bca;
+	color: white;
+	text-align: center;
+}
+
+.table-custom td{
+	text-align: center;
+}
