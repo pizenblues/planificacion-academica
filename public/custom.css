@@ -1,0 +1,35 @@
+.logo{
+	height: 150px;
+	width: auto;
+	margin: 0 auto 0 auto;
+}
+
+.custom-btn{
+	margin-right: 10px;
+}
+
+.table-custom th{
+	background: #428bca;
+	color: white;
+	text-align: center;
+}
+
+.table-custom td{
+	text-align: center;
+}
+
+.bgmain{
+	background: url("images/bg3.jpg") no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bgmain .page-header{
+	border: none;
+}
+
+.panel-shadow{
+	box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
+}
