@@ -12,13 +12,13 @@
 	      $error = true;
 	      $message = "Datos incorrectos";
 	    }else{
-	    	$query = "SELECT tipo FROM usuario WHERE login = '{$usuario}'";
+	    	$query = "SELECT * FROM usuario WHERE login = '{$usuario}'";
 		    $sql = mysql_query($query, $connect);
-		    $tipo = mysql_fetch_assoc($sql);
-			if ($tipo["tipo"] == "profesor") {
-				header('location: profesor.php');
+		    $loginfo = mysql_fetch_assoc($sql);
+			if ($loginfo["tipo"] == "profesor") {
+				header('Location: profesor.php?login='.$loginfo["login"]);
 			}else{
-				header('location: estudiante.php');
+				header('Location: estudiante.php?login='.$loginfo["login"]);
 			}
 	    }
 	}

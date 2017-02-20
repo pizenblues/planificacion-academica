@@ -32,7 +32,7 @@ create table seccion(
 );
 
 create table estudiante(
-	estudiante_cedula int auto_increment,
+	estudiante_cedula int not null,
 	estudiante_usuario int not null,
 	estudiante_nombre varchar (50) not null,
 	estudiante_carrera int not null,
@@ -46,7 +46,7 @@ create table estudiante(
 );
 
 create table profesor(
-	profesor_cedula int auto_increment,
+	profesor_cedula int not null,
 	profesor_usuario int not null,
 	profesor_nombre varchar (50) not null, 
 	profesor_telefono varchar (15),

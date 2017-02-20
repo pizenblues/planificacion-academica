@@ -1,3 +1,6 @@
+<?php 
+$login = $_GET["login"];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +9,6 @@
 </head>
 <body>
 	eres un profesor
+	<?php echo $login ?>
 </body>
 </html>
