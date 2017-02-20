@@ -1,4 +1,13 @@
 create database	planificacion;
+use planificacion;
+
+create table usuario(
+	usuario_id int auto_increment,
+	login varchar (25) unique,
+	pass varchar (25),
+	tipo varchar (20),
+	primary key (usuario_id)
+);
 
 create table carrera(
 	carrera_id int auto_increment,
@@ -24,6 +33,7 @@ create table seccion(
 
 create table estudiante(
 	estudiante_cedula int auto_increment,
+	estudiante_usuario int not null,
 	estudiante_nombre varchar (50) not null,
 	estudiante_carrera int not null,
 	estudiante_telefono varchar (15),
@@ -31,29 +41,20 @@ create table estudiante(
 	estudiante_correo varchar(25),
 	estudiante_nacimiento date,
 	primary key (estudiante_cedula),
-	foreign key (estudiante_carrera) references carrera (carrera_id)
+	foreign key (estudiante_carrera) references carrera (carrera_id),
+	foreign key (estudiante_usuario) references usuario (usuario_id)
 );
 
 create table profesor(
 	profesor_cedula int auto_increment,
+	profesor_usuario int not null,
 	profesor_nombre varchar (50) not null, 
 	profesor_telefono varchar (15),
 	profesor_direccion text,
 	profesor_correo varchar(25),
 	profesor_nacimiento date,
-	primary key (profesor_cedula)
-);
-
-create table coordinador(
-	coordinador_cedula int auto_increment,
-	coordinador_nombre varchar (50),
-	coordinador_carrera int not null,
-	coordinador_telefono varchar (15),
-	coordinador_direccion text,
-	coordinador_correo varchar(25),
-	coordinador_nacimiento date,
-	primary key (coordinador_cedula),
-	foreign key (coordinador_carrera) references carrera (carrera_id)
+	primary key (profesor_cedula),
+	foreign key (profesor_usuario) references usuario (usuario_id)
 );
 
 create table estudiante_seccion(

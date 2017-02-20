@@ -1,3 +1,4 @@
+<?php include('../src/login.php') ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,14 +20,17 @@
 				</span>
 			</div>
 			<div class="panel-body">
-				<form class="col-xs-12 col-sm-10 col-sm-offset-1">
+				<?php if ($error == true):?>
+					<div class="alert alert-warning" role="alert">Sus datos estan incorrectos</div>
+				<?php endif ?> 
+				<form method="post" class="col-xs-12 col-sm-10 col-sm-offset-1">
 					<div class="form-group">
 						<label for="usuario">usuario</label>
-						<input type="text" class="form-control" id="usuario" required>
+						<input type="text" class="form-control" name="usuario" required>
 					</div>
 					<div class="form-group">
 						<label for="clave">clave</label>
-						<input type="password" class="form-control" id="clave" required>
+						<input type="password" class="form-control" name="clave" required>
 					</div>
 					<button type="submit" class="btn btn-primary col-xs-12">Entrar</button>
 				</form>
