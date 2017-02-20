@@ -3,7 +3,8 @@ insert into usuario (login, pass, tipo) values
 	("admin", "admin", "admin"),
 	("morty", "morty", "estudiante"),
 	("rick", "rick", "profesor"), 
-	("deisy", "deisy", "estudiante");
+	("deisy", "deisy", "estudiante"),
+	("valentina", "valentina", "estudiante");
 
 insert into carrera (carrera_nombre) values
 	("informatica"), ("matematica");
@@ -19,7 +20,7 @@ insert into materia (materia_carrera, materia_nombre) values
 	(1, "programacion lineal");
 
 insert into seccion (seccion_materia, seccion_nombre) values
-	(1, "seccion 1"),
+	(1, "seccion 1", ),
 	(2, "seccion 1"),
 	(2, "seccion 2"),
 	(3, "seccion 1"),

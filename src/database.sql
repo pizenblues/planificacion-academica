@@ -31,6 +31,13 @@ create table seccion(
     foreign key (seccion_materia) references materia (materia_id)
 );
 
+create table horario(
+	horario_id int auto_increment,
+	horario_dia varchar (20) not null,
+	horario_hora varchar (20) not null,
+	primary key (horario_id)
+);
+
 create table estudiante(
 	estudiante_cedula int not null,
 	estudiante_usuario int not null,
@@ -71,4 +78,13 @@ create table profesor_seccion(
 	primary key (ps_profesor, ps_seccion),
 	foreign key (ps_profesor) references profesor (profesor_cedula),
 	foreign key (ps_seccion) references seccion (seccion_id)
+);
+
+
+create table seccion_horario(
+	sh_seccion int not null,
+	sh_horario int not null,
+	primary key (sh_horario, sh_seccion),
+	foreign key (sh_seccion) references seccion (seccion_id),
+	foreign key (sh_horario) references horario (horario_id)
 );

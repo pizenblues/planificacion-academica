@@ -1,5 +1,7 @@
-<?php include('../src/estudiante_dashboard.php');
-$login = $_GET["login"];
+<?php 
+	include('../src/estudiante_dashboard.php');
+	$login = $_GET["login"];
+	$query = "SELECT * FROM estudiante"
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,16 +15,17 @@ $login = $_GET["login"];
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-          <li><a href="#">Inicio</a></li>
-          <li class="active"><a href="#">Perfil</a></li>
+          <p class="navbar-text">Perfil: estudiante</p>
+          <li class="active"><a href="#">Horario</a></li>
       </ul>
-      <button type="button" class="btn btn-default navbar-btn navbar-right custom-btn">Salir</button>
+      <button type="button" class="btn btn-default navbar-btn navbar-right custom-btn">
+      	<?php echo $login ?>
+      </button>
     </div>
   </nav>
   <div class="container">
     <div class="page-header">
       <h2>Horario de clases</h2>
-      <h1><?php echo $login ?></h1>
     </div>
     <table class="table table-bordered table-custom">
       <tr>
