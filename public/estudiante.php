@@ -1,12 +1,12 @@
 <?php 
 	$login = $_GET["login"];
-	$query = "SELECT * FROM estudiante";
+	$query = "SELECT * FROM estudiante WHERE login = '{$login}'";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../modules/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="custom.css">
   <title>Horario</title>
 </head>
@@ -14,11 +14,11 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-          <p class="navbar-text">Perfil: estudiante</p>
+          <li><a href="#">Estudiante: <?php echo $login ?></a></li>
           <li class="active"><a href="#">Horario</a></li>
       </ul>
       <button type="button" class="btn btn-default navbar-btn navbar-right custom-btn">
-      	<?php echo $login ?>
+      	<i class="fa fa-cog" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
