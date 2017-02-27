@@ -1,7 +1,6 @@
 <?php 
-	include('../src/estudiante_dashboard.php');
 	$login = $_GET["login"];
-	$query = "SELECT * FROM estudiante"
+	$query = "SELECT * FROM estudiante";
 ?>
 <!DOCTYPE html>
 <html lang="es">
