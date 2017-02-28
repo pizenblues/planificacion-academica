@@ -74,6 +74,7 @@ create table estudiante(
 	estudiante_id int auto_increment,
 	estudiante_usuario int,
 	estudiante_carga_academica int,
+	estudiante_inscripcion varchar(4),
 	primary key (estudiante_id),
 	foreign key (estudiante_usuario) references usuario (usuario_id)
 );

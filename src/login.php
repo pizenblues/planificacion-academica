@@ -1,6 +1,8 @@
 <?php 
+	session_start();
 	$message = "";
 	$error = false;
+
 	if(isset($_POST["usuario"])){
 		$usuario = $_POST["usuario"];
 		$clave = $_POST["clave"];
@@ -8,21 +10,23 @@
 	    $query = "SELECT * FROM usuario WHERE login = '{$usuario}' AND pass = '{$clave}'";
 	    $sql = mysql_query($query, $connect);
 	    $cuenta = mysql_num_rows($sql);
+	    $loginfo = mysql_fetch_assoc($sql);
+
 	    if($cuenta != 1){
 	      $error = true;
 	      $message = "Datos incorrectos";
+
 	    }else{
-	    	$query = "SELECT * FROM usuario WHERE login = '{$usuario}'";
-		    $sql = mysql_query($query, $connect);
-		    $loginfo = mysql_fetch_assoc($sql);
+		    $_SESSION["login"] = $usuario;
+
 			if ($loginfo["perfil"] == "profesor") {
-				header('Location: profesor.php?login='.$loginfo["login"]);
+				header('Location: profesor');
 			}else if ($loginfo["perfil"] == "estudiante"){
-				header('Location: estudiante.php?login='.$loginfo["login"]);
+				header('Location: estudiante');
 			}else if ($loginfo["perfil"] == "admin"){
-				echo "admin";;
+				header('Location: admin');
 			}else{
-				echo "error";
+				header('location: error.php');
 			}
 	    }
 	}

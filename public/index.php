@@ -3,7 +3,8 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../modules/bootstrap/dist/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="../modules/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="custom.css">
 	<title>Iniciar sesion</title>
 </head>

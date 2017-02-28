@@ -48,7 +48,7 @@ insert into horario (horario_dia, horario_bloque, horario_salon) values
 	(4,2,1),(4,3,1),(4,4,1),
 	(5,1,1),(5,2,1);
 
-insert into estudiante (estudiante_usuario,estudiante_carga_academica) values (1,12),(2,8);
+insert into estudiante (estudiante_usuario,estudiante_carga_academica, estudiante_inscripcion) values (1,12,"2011"),(2,8,"2011");
 insert into profesor (profesor_usuario) values (3);
 insert into coordinador (coordinador_usuario, coordinador_carrera) values (4,1);
 
