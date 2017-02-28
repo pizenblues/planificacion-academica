@@ -20,27 +20,46 @@
     include("navbar.php");
     $carga_academica = 0;
 ?>
-<h2>datos personales</h2>
-<b>nombre</b> <span><?php echo $data["nombre"] ?></span> <br>
-<b>ceudla</b> <span><?php echo $data["cedula"] ?></span> <br>
-<b>fecha de nacimiento</b> <span><?php echo $data["nacimiento"] ?></span> <br>
+<div class="container">
+  <div class="page-header">
+    <h2>Datos del estudiante</h2>
+  </div>
 
-<h2>datos de contacto</h2>
-<b>telefono</b> <span><?php echo $data["telefono"] ?></span> <br>
-<b>correo</b> <span><?php echo $data["correo"] ?></span> <br>
-<b>direccion</b> <span><?php echo $data["direccion"] ?></span> <br>
+  <div class="col-xs-12 col-sm-4">
+    <h3>Datos personales</h3>
+    <b>Nombre:</b> <span><?php echo $data["nombre"] ?></span> <br>
+    <b>Ceudula:</b> <span><?php echo $data["cedula"] ?></span> <br>
+    <b>Fecha de nacimiento: </b> <span><?php echo $data["nacimiento"] ?></span>
+    <h4>Informacion de contacto</h4>
+    <b>Telefono: </b> <span><?php echo $data["telefono"] ?></span> <br>
+    <b>Correo: </b> <span><?php echo $data["correo"] ?></span> <br>
+    <b>Direccion: </b> <span><?php echo $data["direccion"] ?></span>
+  </div>
 
-<h2>datos academicos</h2>
-<b>carrera</b> <span><?php echo $data["carrera_nombre"] ?></span><br>
-<b>inscripcion</b> <span><?php echo $data["estudiante_inscripcion"] ?></span><br>
-<h3>materias inscritas</h3>
+  <div class="col-xs col-sm-8">
+    <h3>Datos academicos</h3>
+    <b>Carrera: </b> <span><?php echo $data["carrera_nombre"] ?></span><br>
+    <b>Inscripcion: </b> <span><?php echo $data["estudiante_inscripcion"] ?></span><br>
+    <table class="table table-bordered table-custom">
+      <tr>
+        <th>Materia inscrita</th>
+        <th>Seccion</th>
+        <th>Creditos</th>
+      </tr>
+    <?php do{
+      echo '<tr>';
+        echo '<td>',$data["materia_nombre"],'</td>';
+        echo '<td>',$data["seccion_nombre"],'</td>';
+        echo '<td>',$data["materia_creditos"],'</td>';
+      echo '</tr>';
+      $carga_academica = $carga_academica + $data["materia_creditos"];
+      }while ($data = mysql_fetch_assoc($sql));
+    ?>
+      <b>Carga academica: </b><?php echo $carga_academica ?>
+    </table>
+  </div>
 
-<?php do{
-  echo $data["materia_nombre"]." ".$data["seccion_nombre"],'<br>';
-  $carga_academica = $carga_academica + $data["materia_creditos"];
-  }while ($data = mysql_fetch_assoc($sql));
-?>
-<b>carga academcia</b><?php echo $carga_academica ?>
+</div>
 
 <?php 
   include('footer.php');

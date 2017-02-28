@@ -26,6 +26,7 @@ create table materia(
 	materia_nombre char (50) not null,
 	materia_carrera int not null,
 	materia_creditos int not null,
+	materia_color varchar(20) not null,
 	primary key (materia_id),
 	foreign key (materia_carrera) references carrera (carrera_id)
 );

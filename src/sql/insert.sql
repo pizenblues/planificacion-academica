@@ -10,12 +10,12 @@ values
 
 insert into carrera (carrera_nombre) values ("informatica");
 
-insert into materia (materia_nombre, materia_carrera, materia_creditos) values
-	("Matematica I", 1, 4),
-	("Matematica II", 1, 4),
-	("Ingles I", 1, 2),
-	("Castellano", 1, 2),
-	("Sistemas II", 1, 3);
+insert into materia (materia_nombre, materia_carrera, materia_creditos, materia_color) values
+	("Matematica I", 1, 4, "info"),
+	("Matematica II", 1, 4, "info"),
+	("Ingles I", 1, 2, "warning"),
+	("Castellano", 1, 2, "danger"),
+	("Sistemas II", 1, 3, "default");
 
 insert into seccion (seccion_nombre, seccion_materia) values
 	("Seccion A", 1),

@@ -10,12 +10,12 @@
 
 .table-custom th{
 	background: #428bca;
-	color: white;
-	text-align: center;
+	color: white; text-align: center;
 }
 
 .table-custom td{
 	text-align: center;
+	min-height: 37px;
 }
 
 .bgmain{

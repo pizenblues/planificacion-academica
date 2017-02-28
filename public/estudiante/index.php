@@ -32,15 +32,15 @@
     foreach($materias as $result) {
       $horario[] =  $result["dia_id"].$result["bloque"];
       $materia[] =  $result["materia_nombre"];
+      $color[] =  $result["materia_color"];
     }
-    echo print_r($horario);
-    echo print_r($materia);
  ?>
   <div class="page-header">
     <h2>Horario de clases</h2>
   </div>
   <table class="table table-bordered table-custom">
     <tr>
+      <th>Hora</th>
       <th>Lunes</th>
       <th>Martes</th>
       <th>Miercoles</th>
@@ -51,12 +51,15 @@
     <?php
       $bloque = array('A','B','C','D','E');
       $mark = 0;
+      $hora = 7;
       for ($j=0; $j < 5; $j++) { 
         echo "<tr>";
+        echo "<td>".$hora.":00  </td>";
+        $hora = $hora+2;
         for ($i=1; $i < 6; $i++) {
           echo "<td>";
           if (in_array($i.$bloque[$j], $horario)) {
-            echo $materia[$mark];
+            echo "<span class='label label-".$color[$mark]."'>".$materia[$mark]."</span>";
             $mark = ($mark + 1);
           }else{
             echo "";
