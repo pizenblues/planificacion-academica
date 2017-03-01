@@ -38,8 +38,7 @@ insert into bloque (bloque, bloque_hora) values
 	("E", "15:00");
 
 insert into salon (salon, salon_puestos) values
-	("INFO-1", 30),
-	("MATE-1", 30);
+	("INFO-1", 30),	("MATE-1", 30);
 
 insert into horario (horario_dia, horario_bloque, horario_salon) values
 	(1,1,1),(1,2,1),(1,3,1),(1,4,1),
