@@ -1,4 +1,4 @@
-use planificacion;
+	use planificacion;
 
 insert into usuario
 	(login, pass, perfil, cedula, nombre, telefono, correo, direccion, nacimiento)
@@ -20,22 +20,22 @@ insert into materia (materia_nombre, materia_carrera, materia_creditos, materia_
 insert into seccion (seccion_nombre, seccion_materia) values
 	("Seccion A", 1),
 	("Seccion B", 1),
-	("Seccion A", 2),
-	("Seccion B", 2),
-	("Seccion A", 3),
-	("Seccion B", 3),
-	("Seccion A", 4),
-	("Seccion A", 5);
+	("Seccion C", 2),
+	("Seccion D", 2),
+	("Seccion E", 3),
+	("Seccion F", 3),
+	("Seccion G", 4),
+	("Seccion H", 5);
 
 insert into dia (dia) values 
 ("lunes"),("martes"),("miercoles"),("jueves"),("viernes");
 
 insert into bloque (bloque, bloque_hora) values
-	("A", "7:00 AM - 9:00 AM"),
-	("B", "9:00 AM - 11:00 AM"),
-	("C", "11:00 AM - 1:00 AM"),
-	("D", "1:00 AM - 3:00 AM"),
-	("E", "3:00 AM - 5:00 AM");
+	("A", "7:00"),
+	("B", "9:00"),
+	("C", "11:00"),
+	("D", "13:00"),
+	("E", "15:00");
 
 insert into salon (salon, salon_puestos) values
 	("INFO-1", 30),

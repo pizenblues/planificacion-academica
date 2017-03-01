@@ -36,10 +36,10 @@
     <b>Direccion: </b> <span><?php echo $data["direccion"] ?></span>
   </div>
 
-  <div class="col-xs col-sm-8">
+  <div class="col-xs-12 col-sm-8">
     <h3>Datos academicos</h3>
-    <b>Carrera: </b> <span><?php echo $data["carrera_nombre"] ?></span><br>
-    <b>Inscripcion: </b> <span><?php echo $data["estudiante_inscripcion"] ?></span><br>
+    <b>Carrera: </b> <span><?php echo $data["carrera_nombre"] ?></span>
+    <b> - Inscripcion: </b> <span><?php echo $data["estudiante_inscripcion"] ?></span>
     <table class="table table-bordered table-custom">
       <tr>
         <th>Materia inscrita</th>
@@ -48,17 +48,25 @@
       </tr>
     <?php do{
       echo '<tr>';
-        echo '<td>',$data["materia_nombre"],'</td>';
-        echo '<td>',$data["seccion_nombre"],'</td>';
-        echo '<td>',$data["materia_creditos"],'</td>';
+        echo "<td><a href='materia.php?seccion=".$data["seccion_id"]."'>",
+                $data["materia_nombre"],
+            '</a></td>';
+
+        echo '<td>',
+                $data["seccion_nombre"],
+            '</td>';
+
+        echo '<td>',
+                $data["materia_creditos"],
+            '</td>';
+
       echo '</tr>';
       $carga_academica = $carga_academica + $data["materia_creditos"];
       }while ($data = mysql_fetch_assoc($sql));
     ?>
-      <b>Carga academica: </b><?php echo $carga_academica ?>
+      <b> - Carga academica: </b><?php echo $carga_academica ?> creditos
     </table>
   </div>
-
 </div>
 
 <?php 
