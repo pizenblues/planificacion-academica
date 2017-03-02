@@ -19,6 +19,9 @@
     include("header.php");
     include("navbar.php");
     $carga_academica = 0;
+
+    $phpdate = strtotime( $data["nacimiento"] );
+    $nacimiento = date( 'd/m/Y', $phpdate );
 ?>
 <div class="container">
   <div class="page-header">
@@ -29,7 +32,7 @@
     <h3>Datos personales</h3>
     <b>Nombre:</b> <span><?php echo $data["nombre"] ?></span> <br>
     <b>Ceudula:</b> <span><?php echo $data["cedula"] ?></span> <br>
-    <b>Fecha de nacimiento: </b> <span><?php echo $data["nacimiento"] ?></span>
+    <b>Fecha de nacimiento: </b> <span><?php echo $nacimiento ?></span>
     <h4>Informacion de contacto</h4>
     <b>Telefono: </b> <span><?php echo $data["telefono"] ?></span> <br>
     <b>Correo: </b> <span><?php echo $data["correo"] ?></span> <br>
