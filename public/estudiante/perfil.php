@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(isset($_SESSION["login"]) && ($_SESSION["login"]!=null)):
-	  $login = $_SESSION["login"];
+    $login = $_SESSION["login"];
 
     include("../../src/dbconnect.php");
 
@@ -13,15 +13,15 @@
     JOIN carrera ON materia.materia_carrera = carrera.carrera_id
     WHERE login = '{$login}'";
 
+    $result = mysql_query($query, $connect);
     $sql = mysql_query($query, $connect);
-    $data = mysql_fetch_assoc($sql);
+    $data = mysql_fetch_assoc($result);
+    $carga_academica = 0;
+    $phpdate = strtotime( $data["nacimiento"] );
+    $nacimiento = date( 'd/m/Y', $phpdate );
 
     include("header.php");
     include("navbar.php");
-    $carga_academica = 0;
-
-    $phpdate = strtotime( $data["nacimiento"] );
-    $nacimiento = date( 'd/m/Y', $phpdate );
 ?>
 <div class="container">
   <div class="page-header">
@@ -49,24 +49,23 @@
         <th>Seccion</th>
         <th>Creditos</th>
       </tr>
-    <?php do{
-      echo '<tr>';
-        echo "<td><a href='materia.php?seccion=".$data["seccion_id"]."'>",
-                $data["materia_nombre"],
-            '</a></td>';
-
-        echo '<td>',
-                $data["seccion_nombre"],
-            '</td>';
-
-        echo '<td>',
-                $data["materia_creditos"],
-            '</td>';
-
-      echo '</tr>';
-      $carga_academica = $carga_academica + $data["materia_creditos"];
-      }while ($data = mysql_fetch_assoc($sql));
-    ?>
+      
+      <?php while($data = mysql_fetch_assoc($sql)): ?>
+      <?php $carga_academica = $carga_academica + $data["materia_creditos"]; ?>
+      <tr>
+        <td>
+          <a href="materia.php?seccion=<?php echo $data["seccion_id"] ?>">
+            <?php echo $data["materia_nombre"] ?>
+          </a>
+        </td>
+        <td>
+          <?php echo $data["seccion_nombre"] ?>
+        </td>
+        <td>
+          <?php echo $data["materia_creditos"] ?>
+        </td>
+      </tr>
+      <?php endwhile ?>
       <b> - Carga academica: </b><?php echo $carga_academica ?> creditos
     </table>
   </div>

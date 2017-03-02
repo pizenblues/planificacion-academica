@@ -7,7 +7,7 @@
     $seccion = $_GET["seccion"];
     
     include("../../src/dbconnect.php");
-    require 'halp.php';
+    require ('../../src/estudiante/halp.php');
 
     $query = "SELECT * FROM seccion
     left join materia on materia.materia_id = seccion.seccion_materia

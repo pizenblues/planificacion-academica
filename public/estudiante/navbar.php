@@ -23,11 +23,11 @@
       <span class="navbar-text navbar-rightn">
         Logeado como Estudiante <b><?php echo $login ?></b>
       </span>
-      <button type="button" class="btn btn-default navbar-btn navbar-right custom-btn">
-      	<a href="../../src/logout.php">
+      <a class="none" href="../../src/logout.php">
+        <button type="button" class="btn btn-default navbar-btn navbar-right custom-btn">
           salir <i class="fa fa-sign-out" aria-hidden="true"></i>
-        </a>
-      </button>
+        </button>
+      </a>
     </ul>
   </div>
 </nav>
