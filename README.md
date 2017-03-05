@@ -18,3 +18,5 @@ proyecto para sistemas ii. semestre ii 2016.
 - [ ] acomodar vista para pagina de errores.
 - [ ] ordenar la pea.
 - [x] ponerle formato a la fecha de nacimiento en estudiante > perfil.
+- [x] condicionales de creditos, y datos duplicados en estudiante > inscribir.
+- [ ] hacer todo con Bulma.
