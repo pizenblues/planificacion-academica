@@ -29,7 +29,7 @@
         for ($i=1; $i < 6; $i++) {
           echo "<td>";
           if (in_array($i.$bloque[$j], $horario)) {
-            echo "<span class='label label-".$color[$mark]."'>".$materia[$mark]."</span></br>";
+            echo "<span class='label label-".$color[$mark]."'>".$nombre[$mark]."</span></br>";
             echo "<span>".$salon[$mark]."</span>";
             $mark++;
           }else{

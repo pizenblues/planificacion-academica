@@ -5,6 +5,10 @@
 
     include("../../src/dbconnect.php");
 
+    if (isset($_GET["success"])) {
+      echo "MATERIA INSCRITA CON EXITO.";
+    }
+
     $query = "SELECT * FROM usuario 
     JOIN estudiante ON usuario.usuario_id = estudiante.estudiante_usuario
     JOIN estudiante_seccion ON estudiante.estudiante_id = estudiante_seccion.es_estudiante
@@ -30,6 +34,7 @@
 
   <div class="col-xs-12 col-sm-4">
     <h3>Datos personales</h3>
+    <a href="editarperfil.php">Editar</a><br>
     <b>Nombre:</b> <span><?php echo $data["nombre"] ?></span> <br>
     <b>Ceudula:</b> <span><?php echo $data["cedula"] ?></span> <br>
     <b>Fecha de nacimiento: </b> <span><?php echo $nacimiento ?></span>

@@ -4,7 +4,8 @@
 
   $horario = array('index.php');
   $inscripcion = array('inscribir.php');
-  $perfil = array('perfil.php');
+  $perfil = array('perfil.php','editarperfil.php');
+  $materia = array('materias.php','materia.php');
 ?>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -14,6 +15,9 @@
         </li>
         <li <?php echo in_array($filename, $perfil) ? "class='active'" : '' ?> >
           <a href="perfil.php">Perfil</a>
+        </li>
+        <li <?php echo in_array($filename, $materia) ? "class='active'" : '' ?>>
+          <a href="materias.php">Materias</a>
         </li>
         <li <?php echo in_array($filename, $inscripcion) ? "class='active'" : '' ?>>
           <a href="inscribir.php">Inscribir materias</a>

@@ -15,18 +15,27 @@ include('../../src/dbconnect.php');
 
     $sql = mysql_query($query, $connect);
     $materias = array();
-
     while ($fila = mysql_fetch_assoc($sql)) {
       $materias[] = $fila;
     }
-    
     foreach($materias as $result) {
       $horario[] =  $result["dia_id"].$result["bloque"];
-      $materia[] =  $result["materia_nombre"];
+      $nombre[] =  $result["materia_nombre"];
       $salon[] =  $result["salon"];
       $color[] =  $result["materia_color"];
-      $hora[] =  $result["bloque_hora"];
+      //$hora[] =  $result["bloque_hora"];
     }
+
+    $hora_query = "SELECT * FROM bloque";
+    $hora_result = mysql_query($hora_query, $connect);
+    $hora_data = array();
+    while ($i = mysql_fetch_assoc($hora_result)) {
+      $hora_data[] = $i;
+    }
+    foreach($hora_data as $horas) {
+      $hora[] =  $horas["bloque_hora"];
+    }
+   //echo $hora[1];
 
   //var_dump($horario);
   //var_dump($materia);
