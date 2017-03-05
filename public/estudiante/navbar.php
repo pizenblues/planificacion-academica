@@ -3,7 +3,7 @@
   $filename = basename($filepath); 
 
   $horario = array('index.php');
-  $inscripcion = array('inscripcion.php');
+  $inscripcion = array('inscribir.php');
   $perfil = array('perfil.php');
 ?>
 <nav class="navbar navbar-default">

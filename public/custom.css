@@ -4,9 +4,7 @@
 	margin: 0 auto 0 auto;
 }
 
-.custom-btn{
-	margin-right: 10px;
-}
+.custom-btn{margin-right: 10px}
 
 .table-custom th{
 	background: #428bca;
@@ -26,19 +24,15 @@
   background-size: cover;
 }
 
-.bgmain .page-header{
-	border: none;
-}
+.bgmain .page-header{border: none}
 
-.panel-shadow{
-	box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
-}
+.panel-shadow{box-shadow: 1px 1px 20px rgba(0,0,0,0.3)}
 
-.none{
-	color: inherit;
-}
+.none{color: inherit}
 
 .none:hover{
 	color: inherit;
 	text-decoration: none;
 }
+
+.hidden{display: none}

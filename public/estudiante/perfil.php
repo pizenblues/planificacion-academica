@@ -36,12 +36,13 @@
     <h4>Informacion de contacto</h4>
     <b>Telefono: </b> <span><?php echo $data["telefono"] ?></span> <br>
     <b>Correo: </b> <span><?php echo $data["correo"] ?></span> <br>
-    <b>Direccion: </b> <span><?php echo $data["direccion"] ?></span>
+    <b>Direccion: </b> <span><?php echo $data["direccion"] ?></span><br>
   </div>
 
   <div class="col-xs-12 col-sm-8">
     <h3>Datos academicos</h3>
     <b>Carrera: </b> <span><?php echo $data["carrera_nombre"] ?></span>
+    <b> - Creditos aprobados: </b><?php echo $data["estudiante_carga_academica"] ?>
     <b> - Inscripcion: </b> <span><?php echo $data["estudiante_inscripcion"] ?></span>
     <table class="table table-bordered table-custom">
       <tr>
