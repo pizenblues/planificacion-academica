@@ -76,8 +76,8 @@ insert into profesor_seccion (ps_profesor, ps_seccion) values
 	(3,5),(3,6);
 
 insert into horario_seccion (hs_seccion, hs_horario) values
-	(1,1), (2,2), (4,3), (7,4),
+	(1,1), (3,2), (4,3), (7,4),
 	(2,5), (5,6),
 	(1,7), (2,8), (4,9), (7,10),
 	(2,11), (3,12), (6,13), (8,14),
-	(1,15), (2,16), (4,17), (8,18);
+	(1,15), (3,16), (4,17), (8,18);
