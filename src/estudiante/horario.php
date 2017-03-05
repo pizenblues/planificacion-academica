@@ -11,7 +11,7 @@ include('../../src/dbconnect.php');
     JOIN salon ON horario.horario_salon = salon.salon_id
     JOIN bloque ON horario.horario_bloque = bloque.bloque_id
     WHERE login = '{$login}'
-    ORDER BY bloque,dia";
+    ORDER BY bloque, dia_id";
 
     $sql = mysql_query($query, $connect);
     $materias = array();
@@ -27,3 +27,6 @@ include('../../src/dbconnect.php');
       $color[] =  $result["materia_color"];
       $hora[] =  $result["bloque_hora"];
     }
+
+  var_dump($horario);
+  var_dump($materia);

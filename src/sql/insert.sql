@@ -72,12 +72,12 @@ insert into estudiante_seccion (es_estudiante, es_seccion) values
 
 insert into profesor_seccion (ps_profesor, ps_seccion) values
 	(1,7),(1,8),
-	(1,1),(1,2),(1,3),
-	(1,5),(1,6);
+	(2,1),(2,2),(2,3),
+	(3,5),(3,6);
 
-insert into horario_seccion (hs_horario, hs_seccion) values
-	(1,1), (2,2), (3,4), (4,7),
-	(5,2), (6,5),
-	(7,1), (8,2), (9,4), (10,7),
-	(11,2), (12,3), (13,6), (14,8),
-	(15,1), (16,2), (17,4), (18,8);
+insert into horario_seccion (hs_seccion, hs_horario) values
+	(1,1), (2,2), (4,3), (7,4),
+	(2,5), (5,6),
+	(1,7), (2,8), (4,9), (7,10),
+	(2,11), (3,12), (6,13), (8,14),
+	(1,15), (2,16), (4,17), (8,18);

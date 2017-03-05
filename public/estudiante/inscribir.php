@@ -44,15 +44,51 @@
       if (($materia=="")||($seccion=="")) {
         $message = "Los datos que ingresaste estan vacios";
       }else{
-        //check si la materia choca
-        $inscribir_query = "INSERT INTO estudiante_seccion (es_estudiante, es_seccion)
-        values ('{$estudiante_data['estudiante_id']}','{$seccion}')";
-        $inscribir_result = mysql_query($inscribir_query, $connect);
-        if (!$inscribir_result) {
-          $message = "Los datos que ingresaste ya estan registrados en la base de datos";
-        } else {
-            header('location:inscribir.php?success=1');
+        
+        $check_query = "SELECT horario_dia, horario_bloque from horario
+        join horario_seccion on horario_seccion.hs_horario = horario.horario_id
+        where hs_seccion = '{$seccion}'";
+        $check_result = mysql_query($check_query, $connect);
+        $horario_materia = mysql_fetch_assoc($check_result);
+        //var_dump();
+
+        $inscription_query = "SELECT horario_dia, horario_bloque from horario
+        join horario_seccion on horario_seccion.hs_horario = horario.horario_id
+        join seccion on horario_seccion.hs_seccion = seccion.seccion_id
+        join estudiante_seccion on seccion.seccion_id = estudiante_seccion.es_seccion
+        join estudiante on estudiante_id = estudiante_seccion.es_estudiante
+        join usuario on usuario.usuario_id = estudiante.estudiante_usuario
+        where login = '{$login}'
+        and horario_bloque = '{$horario_materia["horario_bloque"]}'
+        and horario_dia = '{$horario_materia["horario_dia"]}'";
+
+        //$inscription_result = mysql_query($inscription_query, $connect);
+        //$b = array();
+        //while ($i = mysql_fetch_assoc($inscription_result)) {
+        //  $b[] = $i;
+        //}
+        $inscription_result = mysql_query($inscription_query, $connect);
+        $rowcount=mysql_num_rows($inscription_result);
+        if ($rowcount > 0) {
+          echo "choca";
+        }else{
+          echo "todo fino";
         }
+        /*
+
+        
+        if (condition) {
+          # code...
+        }
+          $inscribir_query = "INSERT INTO estudiante_seccion (es_estudiante, es_seccion)
+          values ('{$estudiante_data['estudiante_id']}','{$seccion}')";
+          $inscribir_result = mysql_query($inscribir_query, $connect);
+          if (!$inscribir_result) {
+            $message = "Los datos que ingresaste ya estan registrados en la base de datos";
+          } else {
+              header('location:inscribir.php?success=1');
+          }
+          */
       }
     }
 
