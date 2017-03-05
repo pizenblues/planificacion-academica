@@ -28,5 +28,5 @@ include('../../src/dbconnect.php');
       $hora[] =  $result["bloque_hora"];
     }
 
-  var_dump($horario);
-  var_dump($materia);
+  //var_dump($horario);
+  //var_dump($materia);

@@ -7,7 +7,7 @@
     $message = "";
 
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO PAVITO.";
+      echo "MATERIA INSCRITA CON EXITO.";
     }
 
     $estudiante_query = "SELECT * FROM usuario join estudiante on usuario.usuario_id = estudiante.estudiante_usuario
@@ -62,24 +62,11 @@
         and horario_bloque = '{$horario_materia["horario_bloque"]}'
         and horario_dia = '{$horario_materia["horario_dia"]}'";
 
-        //$inscription_result = mysql_query($inscription_query, $connect);
-        //$b = array();
-        //while ($i = mysql_fetch_assoc($inscription_result)) {
-        //  $b[] = $i;
-        //}
         $inscription_result = mysql_query($inscription_query, $connect);
         $rowcount=mysql_num_rows($inscription_result);
         if ($rowcount > 0) {
-          echo "choca";
+          $message = "La materia que intentas inscribir choca con otra que ya tienes inscrita.";
         }else{
-          echo "todo fino";
-        }
-        /*
-
-        
-        if (condition) {
-          # code...
-        }
           $inscribir_query = "INSERT INTO estudiante_seccion (es_estudiante, es_seccion)
           values ('{$estudiante_data['estudiante_id']}','{$seccion}')";
           $inscribir_result = mysql_query($inscribir_query, $connect);
@@ -88,7 +75,7 @@
           } else {
               header('location:inscribir.php?success=1');
           }
-          */
+        }
       }
     }
 
