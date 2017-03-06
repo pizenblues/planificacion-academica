@@ -28,7 +28,7 @@ create table materia(
 	materia_creditos int not null,
 	materia_color varchar(20) not null,
 	primary key (materia_id),
-	foreign key (materia_carrera) references carrera (carrera_id)
+	foreign key (materia_carrera) references carrera (carrera_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table seccion(
@@ -36,7 +36,7 @@ create table seccion(
 	seccion_nombre varchar (50) not null,
 	seccion_materia int not null,
 	primary key (seccion_id),
-    foreign key (seccion_materia) references materia (materia_id)
+    foreign key (seccion_materia) references materia (materia_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table dia(
@@ -77,14 +77,14 @@ create table estudiante(
 	estudiante_carga_academica int,
 	estudiante_inscripcion varchar(4),
 	primary key (estudiante_id),
-	foreign key (estudiante_usuario) references usuario (usuario_id)
+	foreign key (estudiante_usuario) references usuario (usuario_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table profesor(
 	profesor_id int auto_increment,
 	profesor_usuario int,
 	primary key (profesor_id),
-	foreign key (profesor_usuario) references usuario (usuario_id)
+	foreign key (profesor_usuario) references usuario (usuario_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table coordinador(
@@ -92,7 +92,7 @@ create table coordinador(
 	coordinador_usuario int,
 	coordinador_carrera int,
 	primary key (coordinador_id),
-	foreign key (coordinador_usuario) references usuario (usuario_id),
+	foreign key (coordinador_usuario) references usuario (usuario_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	foreign key (coordinador_carrera) references carrera (carrera_id)
 );
 
@@ -103,7 +103,7 @@ create table estudiante_seccion(
 	primary key (es_id),
 	unique (es_estudiante, es_seccion),
 	foreign key (es_estudiante) references estudiante (estudiante_id),
-	foreign key (es_seccion) references seccion (seccion_id)
+	foreign key (es_seccion) references seccion (seccion_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table profesor_seccion(
@@ -113,7 +113,7 @@ create table profesor_seccion(
 	primary key (ps_id),
 	unique (ps_profesor, ps_seccion),
 	foreign key (ps_profesor) references profesor (profesor_id),
-	foreign key (ps_seccion) references seccion (seccion_id)
+	foreign key (ps_seccion) references seccion (seccion_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table horario_seccion(
@@ -122,6 +122,6 @@ create table horario_seccion(
 	hs_seccion int,
 	primary key (hs_id),
 	unique (hs_horario, hs_seccion),
-	foreign key (hs_horario) references horario (horario_id),
-	foreign key (hs_seccion) references seccion (seccion_id)
+	foreign key (hs_horario) references horario (horario_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	foreign key (hs_seccion) references seccion (seccion_id) ON DELETE CASCADE ON UPDATE CASCADE
 );

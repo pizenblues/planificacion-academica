@@ -5,6 +5,7 @@
   $estudiante = array('estudiante_lista.php','estudiante.php','estudiante_editar.php','estudiante_borrar.php','estudiante_crear.php');
   $materia = array('materia_lista.php','materia.php','materia_editar.php','materia_borrar.php','materia_crear.php');
   $profesor = array('profesor_lista.php','profesor.php','profesor_editar.php','profesor_borrar.php','profesor_crear.php');
+  $seccion = array('seccion_lista.php','seccion.php','seccion_editar.php','seccion_borrar.php','seccion_crear.php');
   
 ?>
 <nav class="navbar navbar-default">
@@ -18,6 +19,9 @@
         </li>
         <li <?php echo in_array($filename, $materia) ? "class='active'" : '' ?>>
           <a href="materia_lista.php">materias</a>
+        </li>
+        <li <?php echo in_array($filename, $seccion) ? "class='active'" : '' ?>>
+          <a href="seccion_lista.php">secciones</a>
         </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
