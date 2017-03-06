@@ -5,9 +5,11 @@
 
     include('../../src/dbconnect.php');
     $message = "";
+    $context = "";
 
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO.";
+      $message =  "Materia inscrita exitosamente";
+      $context = "success";
     }
 
     $estudiante_query = "SELECT * FROM usuario join estudiante on usuario.usuario_id = estudiante.estudiante_usuario
@@ -43,6 +45,7 @@
       $seccion = $_POST["seccion"];
       if (($materia=="")||($seccion=="")) {
         $message = "Los datos que ingresaste estan vacios";
+        $context = "danger";
       }else{
         
         $check_query = "SELECT horario_dia, horario_bloque from horario
@@ -66,12 +69,14 @@
         $rowcount=mysql_num_rows($inscription_result);
         if ($rowcount > 0) {
           $message = "La materia que intentas inscribir choca con otra que ya tienes inscrita.";
+          $context = "danger";
         }else{
           $inscribir_query = "INSERT INTO estudiante_seccion (es_estudiante, es_seccion)
           values ('{$estudiante_data['estudiante_id']}','{$seccion}')";
           $inscribir_result = mysql_query($inscribir_query, $connect);
           if (!$inscribir_result) {
             $message = "Los datos que ingresaste ya estan registrados en la base de datos";
+            $context = "danger";
           } else {
               header('location:inscribir.php?success=1');
           }
@@ -91,23 +96,31 @@
   <?php if (($carga_actual + 2) > $estudiante_data["estudiante_carga_academica"]): ?>
       <span>no posees los creditos disponibles suficientes como para inscribir materias adicionales.</span>
   <?php else: ?>
-    <form method="post">
-    <?php echo $message ?>
-    <select id="materia" name="materia" class="form-control">
-      <option value="">materias</option>
-      <?php foreach ($materias as $materia): ?>
-          <option value="<?php echo $materia['materia_id'] ?>"><?php echo $materia['materia_nombre'] ?></option>
-      <?php endforeach ?>
-    </select>
+    <form method="post" class="col-xs-12 col-sm-6">
+    <?php if ($message):?>
 
-    <select id="seccion" name="seccion" class="form-control">
-      <option value="">secciones</option>
-      <?php foreach ($secciones as $seccion): ?>
-          <option class="hidden" data-materia="<?php echo $seccion["seccion_materia"] ?>" 
-          value="<?php echo $seccion['seccion_id'] ?>"><?php echo $seccion['seccion_nombre'] ?>
-          </option>
-      <?php endforeach ?>
-    </select>
+      <div class="alert alert-<?php echo $context ?>" role="alert"><?php echo $message ?></div>
+    <?php endif ?>
+    <div class="form-group">
+      <select id="materia" name="materia" class="form-control">
+        <option value="">materias</option>
+        <?php foreach ($materias as $materia): ?>
+            <option value="<?php echo $materia['materia_id'] ?>"><?php echo $materia['materia_nombre'] ?></option>
+        <?php endforeach ?>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select id="seccion" name="seccion" class="form-control">
+        <option value="">secciones</option>
+        <?php foreach ($secciones as $seccion): ?>
+            <option class="hidden" data-materia="<?php echo $seccion["seccion_materia"] ?>" 
+            value="<?php echo $seccion['seccion_id'] ?>"><?php echo $seccion['seccion_nombre'] ?>
+            </option>
+        <?php endforeach ?>
+      </select>
+    </div>
+
     <button class="btn btn-success"> inscribir </button>
   </form>
   <?php endif ?>

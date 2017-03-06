@@ -5,8 +5,9 @@
 
     include("../../src/dbconnect.php");
 
+    $message = "";
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO.";
+      $message =  "Accion ejecutada Exitosamente.";
     }
 
     $query = "SELECT * FROM usuario WHERE perfil = 'estudiante'";
@@ -19,8 +20,13 @@
 <div class="container">
   <div class="page-header">
     <h2>Estudiantes</h2>
+    <button class="btn btn-success">
+      <a href="estudiante_crear.php" class="none">Nuevo Estudiante</a> 
+    </button>
   </div>
-	<a href="estudiante_crear">Nuevo estudiante</a>
+  <?php if ($message):?>
+    <div class="alert alert-success" role="alert"><?php echo $message ?></div>
+  <?php endif ?> 
   <div class="col-xs-12 col-sm-12">
     <table class="table table-bordered table-custom">
       <tr>
@@ -40,13 +46,17 @@
           </a>
         </td>
         <td>
-        	<a href="estudiante_editar.php?id=<?php echo $data["usuario_id"] ?>">
-            	editar
-          	</a>
+        	 <button class="btn btn-warning">
+            <a class="none" href="estudiante_editar.php?id=<?php echo $data["usuario_id"] ?>">
+              editar
+            </a> 
+           </button>
         	
-			     <a href="javascript:js_Eliminar(<?php echo $data["usuario_id"] ?>)">
-            	borrar
-          	</a>
+			     <button class="btn btn-danger">
+            <a class="none" href="javascript:js_Eliminar(<?php echo $data["usuario_id"] ?>)">
+              borrar
+            </a>   
+           </button>
         </td>
       </tr>
       <?php endwhile ?>

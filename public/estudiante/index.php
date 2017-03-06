@@ -30,7 +30,7 @@
           echo "<td>";
           if (in_array($i.$bloque[$j], $horario)) {
             echo "<span class='label label-".$color[$mark]."'>".$nombre[$mark]."</span></br>";
-            echo "<span>".$salon[$mark]."</span>";
+            echo "<span class='label custom-lab'>Salon: ".$salon[$mark]."</span>";
             $mark++;
           }else{
             echo "";

@@ -4,9 +4,9 @@
     $login = $_SESSION["login"];
 
     include("../../src/dbconnect.php");
-
+    $message = "";
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO.";
+      $message =  "Accion ejecutada Exitosamente.";
     }
 
     $query = "SELECT * FROM materia ORDER BY materia_nombre";
@@ -21,10 +21,16 @@
 <div class="container">
   <div class="page-header">
     <h2>Materias</h2>
+    <button class="btn btn-success">
+      <a href="materia_crear.php" class="none">Nueva materia</a> 
+    </button>
   </div>
 
+  <?php if ($message):?>
+    <div class="alert alert-success" role="alert"><?php echo $message ?></div>
+  <?php endif ?> 
+
   <div class="col-xs-12 col-sm-12">
-  <a href="materia_crear.php">materia nueva</a>
     <table class="table table-bordered table-custom">
       <tr>
         <th>Nombre</th>
@@ -41,12 +47,17 @@
           <?php echo $data["materia_creditos"] ?>
         </td>
         <td>
-          <a href="materia_editar.php?id=<?php echo $data["materia_id"] ?>">
+          <button class="btn btn-warning">
+            <a class="none" href="materia_editar.php?id=<?php echo $data["materia_id"] ?>">
               editar
-            </a>
-           <a href="javascript:js_Eliminar(<?php echo $data["materia_id"] ?>)">
+            </a> 
+           </button>
+          
+           <button class="btn btn-danger">
+            <a class="none" href="javascript:js_Eliminar(<?php echo $data["materia_id"] ?>)">
               borrar
-            </a>
+            </a>   
+           </button>
         </td>
       </tr>
       <?php endwhile ?>

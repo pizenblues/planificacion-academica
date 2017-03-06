@@ -24,7 +24,7 @@
 			}else if ($loginfo["perfil"] == "estudiante"){
 				header('Location: estudiante');
 			}else if ($loginfo["perfil"] == "admin"){
-				header('Location: admin');
+				header('Location: admin/materia_lista.php');
 			}else{
 				header('location: error.php');
 			}

@@ -37,7 +37,9 @@
   <div class="col-xs-12 col-sm-4">
     <b>Carrera: <?php echo $data["carrera_nombre"] ?></b> <br>
     <b><?php echo $data["seccion_nombre"] ?></b> <br>
+    <!--
     <b>Profesor: <?php echo $data["nombre"] ?></b> <br>
+    -->
     <b>Salon: <?php echo $data["salon"] ?></b> <br>
   </div>
 

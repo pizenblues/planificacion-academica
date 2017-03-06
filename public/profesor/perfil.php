@@ -6,7 +6,7 @@
     include("../../src/dbconnect.php");
 
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO.";
+      $message =  "Datos actualizados exitosamente.";
     }
 
     $query = "SELECT * FROM usuario 
@@ -31,6 +31,10 @@
   <div class="page-header">
     <h2>Datos del profesor</h2>
   </div>
+
+  <?php if ($message):?>
+    <div class="alert alert-success" role="alert"><?php echo $message ?></div>
+  <?php endif ?> 
 
   <div class="col-xs-12 col-sm-4">
     <h3>Datos personales</h3>

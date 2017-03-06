@@ -11,14 +11,14 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
+        <li <?php echo in_array($filename, $materia) ? "class='active'" : '' ?>>
+          <a href="materia_lista.php">materias</a>
+        </li>
         <li <?php echo in_array($filename, $profesor) ? "class='active'" : '' ?>>
           <a href="profesor_lista.php">profesores</a>
         </li>
         <li <?php echo in_array($filename, $estudiante) ? "class='active'" : '' ?>>
           <a href="estudiante_lista.php">estudiantes</a>
-        </li>
-        <li <?php echo in_array($filename, $materia) ? "class='active'" : '' ?>>
-          <a href="materia_lista.php">materias</a>
         </li>
         <li <?php echo in_array($filename, $seccion) ? "class='active'" : '' ?>>
           <a href="seccion_lista.php">secciones</a>

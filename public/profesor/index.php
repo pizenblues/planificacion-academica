@@ -11,7 +11,7 @@
   <div class="page-header">
     <h2>Horario de clases</h2>
   </div>
-  <table class="table table-bordered table-custom">
+  <table class="table table-bordered table-custom table-profesor">
     <tr>
       <th>Hora</th>
       <th>Lunes</th>
@@ -30,8 +30,8 @@
           echo "<td>";
           if (in_array($i.$bloque[$j], $horario)) {
             echo "<span class='label label-".$color[$mark]."'>".$nombre[$mark]."</span></br>";
-            echo "<span>".$salon[$mark]."</span></br>";
-            echo "<b>".$seccion[$mark]."</b>";
+            echo "<span class='label custom-lab'> ".$seccion[$mark]."</span></br>";
+            echo "<span class='label custom-lab'>Salon: ".$salon[$mark]."</span>";
             $mark++;
           }else{
             echo "";

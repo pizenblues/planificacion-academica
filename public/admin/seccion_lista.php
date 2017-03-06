@@ -4,9 +4,9 @@
     $login = $_SESSION["login"];
 
     include("../../src/dbconnect.php");
-
+    $message = "";
     if (isset($_GET["success"])) {
-      echo "MATERIA INSCRITA CON EXITO.";
+      $message =  "Accion ejecutada Exitosamente.";
     }
 
     $query = "SELECT * FROM seccion 
@@ -23,8 +23,15 @@
 ?>
 <div class="container">
   <div class="page-header">
-    <h2>Materias</h2>
+    <h2>Secciones</h2>
+    <button class="btn btn-success">
+      <a href="seccion_crear.php" class="none">Abrir una nueva seccion</a> 
+    </button>
   </div>
+
+  <?php if ($message):?>
+    <div class="alert alert-success" role="alert"><?php echo $message ?></div>
+  <?php endif ?> 
 
   <div class="col-xs-12 col-sm-12">
     <table class="table table-bordered table-custom">
@@ -45,12 +52,11 @@
           <?php echo $data["seccion_nombre"] ?>
         </td>
         <td>
-          <a href="seccion_editar.php?seccion=<?php echo $data["seccion_id"] ?>">
-            Editar
-          </a>
-          <a href="javascript:js_Eliminar(<?php echo $data["seccion_id"] ?>)">
-            Borrar
-          </a>
+          <button class="btn btn-danger">
+            <a class="none" href="javascript:js_Eliminar(<?php echo $data["seccion_id"] ?>)">
+              borrar
+            </a>   
+           </button>
         </td>
       </tr>
       <?php endwhile ?>

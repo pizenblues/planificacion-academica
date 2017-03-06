@@ -5,6 +5,8 @@
 
     include("../../src/dbconnect.php");
 
+    $message = "";
+
     if (isset($_GET["id"])) {
       $id = $_GET["id"];
 
@@ -25,7 +27,7 @@
       $correo = $_POST["correo"];
       $direccion = $_POST["direccion"];
       if(!$telefono || !$correo || !$direccion){
-          echo "campos vacios";
+          $message =  "Alguno de los campos esta vacio. igual que mi alma";
       }else{
         $update_query = "UPDATE usuario SET telefono = '{$telefono}',correo = '{$correo}' , direccion = '{$direccion}' WHERE usuario_id = '{$id}'";
         $sql = mysql_query($update_query, $connect);
@@ -39,35 +41,46 @@
     <h2>Editar datos</h2>
   </div>
 
-  <div class="col-xs-12 col-sm-8">
+  <?php if ($message):?>
+    <div class="alert alert-danger" role="alert"><?php echo $message ?></div>
+  <?php endif ?> 
+
+  <div class="col-xs-12">
     <form method="post">
-      <h3>Datos personales</h3>
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" name="nombre" value="<?php echo $data["nombre"]?>" disabled>
+
+      <div class="col-xs-12 col-sm-6">
+        <h3>Datos personales</h3>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" value="<?php echo $data["nombre"]?>" disabled>
+        </div>
+        <div class="form-group">
+          <label for="cedula">Cedula</label>
+          <input type="text" class="form-control" name="cedula" value="<?php echo $data["cedula"]?>" disabled>
+        </div>
+        <div class="form-group">
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input type="text" class="form-control" name="nacimiento" value="<?php echo $nacimiento?>" disabled>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="cedula">Cedula</label>
-        <input type="text" class="form-control" name="cedula" value="<?php echo $data["cedula"]?>" disabled>
+
+      <div class="col-xs-12 col-sm-6">
+        <h3>Informacion de contacto</h3>
+        <div class="form-group">
+          <label for="telefono">telefono</label>
+          <input type="text" class="form-control" name="telefono" value="<?php echo $data["telefono"]?>">
+        </div>
+        <div class="form-group">
+          <label for="correo">correo</label>
+          <input type="text" class="form-control" name="correo" value="<?php echo $data["correo"]?>">
+        </div>
+        <div class="form-group">
+          <label for="direccion">direccion</label>
+          <input type="text" class="form-control" name="direccion" value="<?php echo $data["direccion"]?>">
+        </div>
+        <input class="btn btn-success" type="submit" name="modificar" value="modificar">
       </div>
-      <div class="form-group">
-        <label for="nacimiento">Fecha de nacimiento</label>
-        <input type="text" class="form-control" name="nacimiento" value="<?php echo $nacimiento?>" disabled>
-      </div>
-      <h4>Informacion de contacto</h4>
-      <div class="form-group">
-        <label for="telefono">telefono</label>
-        <input type="text" class="form-control" name="telefono" value="<?php echo $data["telefono"]?>">
-      </div>
-      <div class="form-group">
-        <label for="correo">correo</label>
-        <input type="text" class="form-control" name="correo" value="<?php echo $data["correo"]?>">
-      </div>
-      <div class="form-group">
-        <label for="direccion">direccion</label>
-        <input type="text" class="form-control" name="direccion" value="<?php echo $data["direccion"]?>">
-      </div>
-      <input type="submit" name="modificar" value="modificar">
+
     </form>
   </div>
 

@@ -22,7 +22,7 @@
 			</div>
 			<div class="panel-body">
 				<?php if ($error == true):?>
-					<div class="alert alert-warning" role="alert">Sus datos estan incorrectos</div>
+					<div class="alert alert-danger" role="alert">Sus datos estan incorrectos</div>
 				<?php endif ?> 
 				<form method="post" class="col-xs-12 col-sm-10 col-sm-offset-1">
 					<div class="form-group">
