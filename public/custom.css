@@ -36,3 +36,29 @@
 }
 
 .hidden{display: none}
+
+
+  .bg-green{
+  	background: #3e8f3e;
+  }
+
+  .bg-dblue{
+  background: #265a88;
+  }
+
+  .bg-lblue{
+  background: #2aabd2;
+  	
+  }
+
+  .bg-yellow{
+  	background: #eb9316;
+  }
+
+  .bg-red{
+  	background: #b92c28;
+  }
+
+  .bg-gray{
+  	background: lightgray;
+  }
