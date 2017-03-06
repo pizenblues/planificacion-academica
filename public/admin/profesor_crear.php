@@ -17,22 +17,20 @@
       $telefono = $_POST["telefono"];
       $correo = $_POST["correo"];
       $direccion = $_POST["direccion"];
-      $creditos = $_POST["creditos"];
-      $ingreso = $_POST["ingreso"];
-      if(!$telefono || !$correo || !$direccion || !$nombre || !$cedula || !$creditos || !$ingreso){
+      if(!$telefono || !$correo || !$direccion || !$nombre || !$cedula){
           echo "campos vacios";
       }else{
         $insert_query = "INSERT INTO usuario (login, pass, perfil, nombre, cedula, telefono, correo, direccion)
-        VALUES ('{$login}','{$pass}','estudiante','{$nombre}','{$cedula}','{$telefono}','{$correo}','{$direccion}')";
+        VALUES ('{$login}','{$pass}','profesor','{$nombre}','{$cedula}','{$telefono}','{$correo}','{$direccion}')";
         $sql = mysql_query($insert_query, $connect);
         $id = mysql_insert_id($connect);
-        header('location: estudiante_crear_join.php?id='.$id.'&creditos='.$creditos.'&ingreso='.$ingreso);
+        header('location: profesor_crear_join.php?id='.$id);
       }
     }
 ?>
 <div class="container">
   <div class="page-header">
-    <h2>Agregar estudiante</h2>
+    <h2>Agregar profesor</h2>
   </div>
 
   <div class="col-xs-12 col-sm-8">
@@ -56,17 +54,7 @@
         <label for="cedula">Cedula</label>
         <input type="text" class="form-control" name="cedula">
       </div>
-      
-      <h4>Datos Academicos</h4>
-      <div class="form-group">
-        <label for="creditos">Creditos aprovados</label>
-        <input type="number" class="form-control" name="creditos" min="8" max="25">
-      </div>
-      <div class="form-group">
-        <label for="ingreso">Año de ingreso</label>
-        <input type="number" class="form-control" name="ingreso" min="1999" max="2018">
-      </div>
-      
+
       <h4>Informacion de contacto</h4>
       <div class="form-group">
         <label for="telefono">telefono</label>
