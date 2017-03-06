@@ -3,12 +3,16 @@
   $filename = basename($filepath); 
 
   $estudiante = array('estudiante_lista.php','estudiante.php','estudiante_editar.php','estudiante_borrar.php','estudiante_crear.php');
-  $materia = array('materia_lista.php','materia.php','materia_editar.php','materia_borrar.php','estudiante_crear.php');
+  $materia = array('materia_lista.php','materia.php','materia_editar.php','materia_borrar.php','materia_crear.php');
+  $profesor = array('profesor_lista.php','profesor.php','profesor_editar.php','profesor_borrar.php','profesor_crear.php');
   
 ?>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
+        <li <?php echo in_array($filename, $profesor) ? "class='active'" : '' ?>>
+          <a href="profesor_lista.php">profesores</a>
+        </li>
         <li <?php echo in_array($filename, $estudiante) ? "class='active'" : '' ?>>
           <a href="estudiante_lista.php">estudiantes</a>
         </li>
